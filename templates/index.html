@@ -1,0 +1,22 @@
+<link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+<link href='/static/css/styles.css' rel='stylesheet' type='text/css'>
+<script src="/static/js/htmx.min.js" defer></script>
+<body>
+   <div class="code-container">
+      <div class="glow-container">
+         <div class="augs" data-augmented-ui></div>
+      </div>
+      <section class="augs bg" data-augmented-ui>
+         <button class="dots" onclick="changeMode()" title="change mode"></button>
+         <input name='url' placeholder="Write your URL here..."
+			hx-trigger="keyup changed delay:1000ms"
+			hx-target="#short_url_display"
+			hx-post="/encode-url"
+            hx-swap="outerHTML">
+         <div class="code highcontrast-dark" id="short_url_display" hx-swap="outerHTML">
+		 </div>
+      </section>
+      </div>
+   </div>
+</body>
+<footer> Style based on: <a href="https://codepen.io/propjockey/pen/dyVMgBg">Jane 💜</a></footer>

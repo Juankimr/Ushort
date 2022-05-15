@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  fastapi:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    volumes:
+      - ".:/app"
+    command: "python -m uvicorn main:app  --host 0.0.0.0 --port 8000  --lifespan=on --use-colors  --reload --log-level debug"
+
+  redis:
+    image: "bitnami/redis:6.2.7"
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 6379:6379
+    volumes:
+      - "redis_data:/bitnami/redis/data"
+
+volumes:
+  redis_data:
+    driver: local
