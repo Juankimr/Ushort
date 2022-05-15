@@ -8,4 +8,6 @@
 
 ## Setup
 
-- Clone the repository and execute `docker-compose up --build`
+- Clone the repository
+- Create your `.env` file
+- execute `docker-compose up --build`
