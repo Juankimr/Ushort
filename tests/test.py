@@ -15,7 +15,7 @@ class _AbstractShortenerTestCase(unittest.TestCase):
         self.expected_short_url = ''
         self.shortener = Shortener(url=self.real_url)
 
-    def test_url_short_(self):
+    def test_url_short_equal_expected_short_url(self):
         url_shorted = self.shortener.shorten()
         self.assertEqual(self.expected_short_url, url_shorted)
 
